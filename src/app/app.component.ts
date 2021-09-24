@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'recipe-app-angular';
+  menu: string = 'recipe';
+
+  onGetNavigate(selectedNav: string){
+    
+    this.menu = selectedNav;
+    
+  }
 }
