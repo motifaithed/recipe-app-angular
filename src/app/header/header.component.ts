@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -6,22 +6,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
-
-  @Output() getNavigate = new EventEmitter<string>();
- 
-  
-  collapsed = true;
-
+export class HeaderComponent {
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  onSelect(navigation: string){
-
-    this.getNavigate.emit(navigation);
-
-  }
-
 }
