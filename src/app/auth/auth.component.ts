@@ -33,10 +33,10 @@ export class AuthComponent implements OnInit {
         .subscribe(resData => {
           this.isLoading = false;
           console.log(resData)
-        },error =>{
+        },errorMessage =>{
           this.isLoading = false;
-          console.log(error);
-          this.error = 'An error Occured!'
+          console.log(errorMessage);
+          this.error = errorMessage;
         });
    }
      form.reset();
