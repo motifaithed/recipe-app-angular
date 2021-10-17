@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule} from "@angular/forms";
 
 import { SharedModule } from "../shared/shared.module";
 import { AuthComponent } from "./auth.component";
@@ -14,7 +14,7 @@ import { AuthComponent } from "./auth.component";
     imports:[
              CommonModule,
              FormsModule,
-             RouterModule.forChild([{path: 'auth', component: AuthComponent}]), 
+             RouterModule.forChild([{path: '', component: AuthComponent}]), 
              SharedModule
             ]
 })
