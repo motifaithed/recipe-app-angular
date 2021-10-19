@@ -8,6 +8,7 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions'
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-auth',
@@ -32,7 +33,11 @@ export class AuthComponent implements OnInit, OnDestroy {
 
       this.isLoading = authState.loading;
       this.error = authState.authError;
-      
+
+      if(this.error) {
+        this.showErrorAlert(this.error);
+      }
+
     });
   }
   ngOnDestroy(){
