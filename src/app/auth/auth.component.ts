@@ -8,7 +8,7 @@ import { PlaceholderDirective } from '../shared/placeholder/placeholder.directiv
 import { Store } from '@ngrx/store';
 import * as fromApp from '../store/app.reducer';
 import * as AuthActions from './store/auth.actions'
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-auth',
@@ -55,36 +55,16 @@ export class AuthComponent implements OnInit, OnDestroy {
       const email = form.value.email;
       const password = form.value.password;
 
-      let authObs: Observable<AuthResponseData>;
-
-      this.isLoading = true
+     
       if(this.isLoginMode){
-      //authObs =  this.authService.login(email, password);
-      this.store.dispatch(new AuthActions.LoginStart({email: email, password: password}));
-          
+        this.store.dispatch(new AuthActions.LoginStart({email: email, password: password}));
       }else{
-        authObs = this.authService.signUp(email, password);
-      
-      }
-    
-    
-    // authObs.subscribe(resData => {
-    //   this.isLoading = false;
-    //   console.log(resData);
-    //   this.router.navigate(['/recipes']);
-
-    // },errorMessage =>{
-      
-    //   console.log(errorMessage);
-    //   this.error = errorMessage;
-    //   this.showErrorAlert(errorMessage);
-    //   this.isLoading = false;
-
-    // });
-      
+        this.store.dispatch(new AuthActions.SignupStart({
+          email: email, password: password
+        })
+    )}
     form.reset();
-
-  }
+}
 
   onHandleError(){
     this.error = null;
